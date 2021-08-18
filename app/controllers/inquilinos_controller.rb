@@ -1,0 +1,3 @@
+class InquilinosController < ApplicationController
+    
+end

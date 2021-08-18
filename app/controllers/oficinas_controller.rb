@@ -3,6 +3,7 @@ class OficinasController < ApplicationController
   #get
   def index
     @lista_oficinas = Oficina.all.order(id: :asc)
+    
   end
 
   #get
