@@ -1,0 +1,54 @@
+<%= form_with(model: inquilino_nuevo, url: '/inquilinos/crear') do |formulario| %>
+    
+    <div class="mb-3">
+        <%= formulario.label :nombre, class: 'form-label' %>
+        <%= formulario.text_field :nombre, class: 'form-control', placeholder: 'Nombre' %>
+        <% if inquilino_nuevo.errors[:nombre].any? %>
+            <div class='error' style="color:red;">
+            <%= inquilino_nuevo.errors[:nombre].first %>
+            </div>
+        <% end %>
+    </div>    
+    <br>
+    <div class="mb-3">
+        <%= formulario.label :apellido, class: 'form-label' %>
+        <%= formulario.text_field :apellido, class: 'form-control', placeholder: 'Apellido' %>
+        <% if inquilino_nuevo.errors[:apellido].any? %>
+            <div class='error' style="color:red;">
+            <%= inquilino_nuevo.errors[:nombre].first %>
+            </div>
+            
+        <% end %>
+    </div>
+    <br>
+    <div class="mb-3">
+        <%= formulario.label :rut, class: 'form-label' %>
+        <%= formulario.text_field :rut, class: 'form-control', placeholder: '11.111.111-1' %>
+        <% if inquilino_nuevo.errors[:rut].any? %>
+            <div class='error' style="color:red;">
+            <%= inquilino_nuevo.errors[:nombre].first %>
+            </div>
+            
+        <% end %>
+    </div>
+    <br>
+    <div class="mb-3">
+        <%= formulario.label :telefono, class: 'form-label' %>
+        <%= formulario.text_field :telefono, class: 'form-control', placeholder: '+56911111111' %>
+        <% if inquilino_nuevo.errors[:telefono].any? %>
+            <div class='error' style="color:red;">
+            <%= inquilino_nuevo.errors[:nombre].first %>
+            </div>
+            
+        <% end %>
+    </div>
+    <br>
+    <div class="mb-3">
+        <%= formulario.label :oficina_id, class: 'form-label' %>
+        <%= formulario.select :oficina_id, options_from_collection_for_select(oficinas, :id, :codigo, selected_key = inquilino_nuevo.oficina.id), {}, {class: 'form-select'} %>
+    </div>
+    <br>
+    <br>
+    <%= formulario.submit '', class: 'btn btn-primary' %>
+
+<% end %>

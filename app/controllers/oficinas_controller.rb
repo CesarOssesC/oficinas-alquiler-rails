@@ -13,9 +13,10 @@ class OficinasController < ApplicationController
 
   #post
   def guardar
-    valores = params.require(:oficina).permit(:codigo, :precio, :esta_alquilada)
+    valores = params.require(:oficina).permit(:codigo, :precio)
 
     @oficina_nueva = Oficina.new(valores)
+    @oficina_nueva.esta_alquilada = false
     
     if @oficina_nueva.save
       redirect_to action: "index"

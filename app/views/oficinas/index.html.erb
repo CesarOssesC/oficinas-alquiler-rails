@@ -1,25 +1,9 @@
+
 <h1>Oficinas registradas</h1>
 
-<% @lista_oficinas.each do |oficina| %>
-    <p>
-        <p>Oficina: <%= oficina.codigo %></p>
-        <p>Valor: <%= oficina.precio %></p>
-        <% if oficina.inquilinos.empty? %>
-            Disponible
-        <% else %>
-            <span>Arrendado por:</span>
-            <ul>
-                <% oficina.inquilinos.each do |inquilino| %>
-                    <li>
-                        <%= inquilino.nombre + " " + inquilino.apellido %>
-                    </li>
-                <% end %>    
-            </ul>    
-            
-        <% end %>
-        
-    </p>
-    <hr>
+<% @lista_oficinas.each do |ofi| %>
+    
+    <%= render 'tarjeta_oficina', oficina: ofi %>
 
 <% end %>
 
