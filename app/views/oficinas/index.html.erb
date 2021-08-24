@@ -1,11 +1,12 @@
+<div class="container-fluid">
+    <h1>Oficinas registradas</h1>
+   
+    <% @lista_oficinas.each do |ofi| %>
+        
+        <%= render 'tarjeta_oficina', oficina: ofi %>
 
-<h1>Oficinas registradas</h1>
-
-<% @lista_oficinas.each do |ofi| %>
-    
-    <%= render 'tarjeta_oficina', oficina: ofi %>
-
-<% end %>
+    <% end %>
+</div>
 
 
 

@@ -1,0 +1,14 @@
+
+
+
+        <tr>
+            <th scope="row"><%= inquilino_nuevo.id %></th>
+            
+            <td><%= link_to inquilino_nuevo.nombre, inquilino_path(inquilino_nuevo), style:"color: black; text-decoration: none; " %></td>
+            <td><%= inquilino_nuevo.apellido %></td>
+            <td><%= inquilino_nuevo.rut %></td>
+            <td><%= inquilino_nuevo.telefono %></td>
+            <td><%= inquilino_nuevo.oficina.codigo %></td>
+            <td><%= link_to "Editar", editar_inquilino_path(inquilino_nuevo), style:"color: black;" %> | <%= link_to "Eliminar", inquilino_path(inquilino_nuevo), method: :delete, data:{confirm: '¿Seguro que quieres eliminar?'}, style:"color: black;"  %></td>
+        </tr>
+        

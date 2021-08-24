@@ -1,4 +1,4 @@
-<%= form_with(model: inquilino_nuevo, url: '/inquilinos/crear') do |formulario| %>
+<%= form_with(model: inquilino_nuevo) do |formulario| %>
     
     <div class="mb-3">
         <%= formulario.label :nombre, class: 'form-label' %>
@@ -45,10 +45,14 @@
     <br>
     <div class="mb-3">
         <%= formulario.label :oficina_id, class: 'form-label' %>
-        <%= formulario.select :oficina_id, options_from_collection_for_select(oficinas, :id, :codigo, selected_key = inquilino_nuevo.oficina.id), {}, {class: 'form-select'} %>
+        <% if inquilino_nuevo.oficina %>
+            <%= formulario.select :oficina_id, options_from_collection_for_select(oficinas, :id, :codigo, selected_key = inquilino_nuevo.oficina.id), {}, {class: 'form-select'} %>
+        <% else %>
+            <%= formulario.select :oficina_id, options_from_collection_for_select(oficinas, :id, :codigo), {}, {class: 'form-select'} %>
+        <% end %>
     </div>
     <br>
     <br>
-    <%= formulario.submit '', class: 'btn btn-primary' %>
+    <%= formulario.submit 'Ingresar', class: 'btn btn-primary' %>
 
 <% end %>

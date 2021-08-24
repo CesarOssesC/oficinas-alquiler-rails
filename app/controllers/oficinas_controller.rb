@@ -1,8 +1,8 @@
 class OficinasController < ApplicationController
-  
+  before_action :validar_sesion
   #get
   def index
-    @lista_oficinas = Oficina.all.order(id: :asc)
+    @lista_oficinas = Oficina.includes(:inquilinos).order(id: :asc)
     
   end
 
